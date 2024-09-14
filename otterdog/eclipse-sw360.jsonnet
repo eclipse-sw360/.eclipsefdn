@@ -12,7 +12,7 @@ orgs.newOrg('eclipse-sw360') {
   _repositories+:: [
     orgs.newRepo('sw360') {
       allow_merge_commit: true,
-      allow_update_branch: false,
+      allow_squash_merge: false,
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       description: "SW360 project",

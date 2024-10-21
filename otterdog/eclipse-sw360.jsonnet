@@ -38,7 +38,7 @@ orgs.newOrg('eclipse-sw360') {
         customRuleset("main") {
           required_status_checks+: {
             status_checks+: [
-              "build"
+              "Build and Test"
             ]
           }
         }

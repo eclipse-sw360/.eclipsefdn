@@ -21,7 +21,6 @@ orgs.newOrg('eclipse-sw360') {
   settings+: {
     description: "SW360 Portal Organization",
     name: "Eclipse SW360",
-    web_commit_signoff_required: true,
     workflows+: {
       actions_can_approve_pull_request_reviews: false,
     },
@@ -35,7 +34,6 @@ orgs.newOrg('eclipse-sw360') {
       description: "SW360 project",
       has_discussions: true,
       homepage: "https://www.eclipse.org/sw360/",
-      web_commit_signoff_required: true,
       rulesets: [
         customRuleset("main") {
           required_status_checks+: {
@@ -52,7 +50,6 @@ orgs.newOrg('eclipse-sw360') {
       delete_branch_on_merge: false,
       description: "SW360 Frontend Project",
       has_discussions: true,
-      web_commit_signoff_required: true,
       rulesets: [
         customRuleset("main") {
           required_status_checks+: {
@@ -72,10 +69,8 @@ orgs.newOrg('eclipse-sw360') {
       topics+: [
         "eclipse"
       ],
-      web_commit_signoff_required: true,
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {
-          allows_force_pushes: false,
           bypass_pull_request_allowances+: [
             "@eclipse-sw360/technology-sw360-project-leads"
           ],
@@ -91,7 +86,6 @@ orgs.newOrg('eclipse-sw360') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: false,
-      web_commit_signoff_required: true,
       workflows+: {
         enabled: false,
       },

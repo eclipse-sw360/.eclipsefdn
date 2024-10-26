@@ -25,6 +25,16 @@ orgs.newOrg('eclipse-sw360') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
+  secrets+: [
+    orgs.newOrgSecret('RENOVATE_TOKEN') {
+      selected_repositories+: [
+        "sw360",
+        "sw360-frontend"
+      ],
+      value: "pass:sw360/tokens/renovate",
+      visibility: "selected"
+    }
+  ],
   _repositories+:: [
     orgs.newRepo('sw360') {
       allow_merge_commit: true,

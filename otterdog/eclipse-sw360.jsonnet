@@ -31,7 +31,7 @@ orgs.newOrg('eclipse-sw360') {
         "sw360",
         "sw360-frontend"
       ],
-      value: "pass:sw360/tokens/renovate",
+      value: "pass:bots/technology.sw360/github.com/renovate-token",
       visibility: "selected"
     }
   ],

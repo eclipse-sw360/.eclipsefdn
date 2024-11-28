@@ -10,12 +10,13 @@ local customRuleset(name) =
     ],
     required_pull_request+: {
       required_approving_review_count: 1,
-      requires_last_push_approval: true,
-      requires_review_thread_resolution: true,
-      requires_code_owner_review: true,
       dismisses_stale_reviews: true,
+      requires_code_owner_review: true,
+      requires_last_push_approval: true,
+      requires_review_thread_resolution: true
     },
     requires_linear_history: true,
+
   };
 
 orgs.newOrg('eclipse-sw360') {
@@ -39,7 +40,7 @@ orgs.newOrg('eclipse-sw360') {
   _repositories+:: [
     orgs.newRepo('sw360') {
       allow_merge_commit: true,
-      allow_squash_merge: true,
+      allow_squash_merge: false,
       delete_branch_on_merge: true,
       dependabot_security_updates_enabled: true,
       description: "SW360 project",
@@ -57,7 +58,7 @@ orgs.newOrg('eclipse-sw360') {
     },
     orgs.newRepo('sw360-frontend') {
       allow_merge_commit: true,
-      allow_squash_merge: true,
+      allow_squash_merge: false,
       delete_branch_on_merge: true,
       description: "SW360 Frontend Project",
       homepage: "https://www.eclipse.org/sw360/",
@@ -76,7 +77,7 @@ orgs.newOrg('eclipse-sw360') {
       allow_merge_commit: true,
       allow_update_branch: false,
       delete_branch_on_merge: true,
-      description: "SW360 website",
+      description: "sw360 website",
       homepage: "https://www.eclipse.org/sw360/",
       has_discussions: true,
       topics+: [
@@ -86,23 +87,11 @@ orgs.newOrg('eclipse-sw360') {
         customRuleset("main") {
           required_status_checks+: {
             status_checks+: [
-              "Build and Publish"
+              "Build and Archive"
             ]
           }
         }
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          bypass_pull_request_allowances+: [
-            "@eclipse-sw360/technology-sw360-project-leads"
-          ],
-          dismisses_stale_reviews: true,
-          required_approving_review_count: 1,
-          requires_commit_signatures: true,
-          requires_conversation_resolution: true,
-          requires_strict_status_checks: false,
-        },
-      ],
+      ]
     },
     orgs.newRepo('sw360.website.published') {
       allow_merge_commit: true,

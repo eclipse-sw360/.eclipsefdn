@@ -19,7 +19,7 @@ local customRuleset(name) =
 
   };
 
-orgs.newOrg('eclipse-sw360') {
+orgs.newOrg('technology.sw360', 'eclipse-sw360') {
   settings+: {
     description: "SW360 Portal Organization",
     name: "Eclipse SW360",
@@ -78,8 +78,7 @@ orgs.newOrg('eclipse-sw360') {
       allow_update_branch: false,
       delete_branch_on_merge: true,
       description: "sw360 website",
-      homepage: "https://www.eclipse.org/sw360/",
-      has_discussions: true,
+      has_discussions: false,
       topics+: [
         "eclipse"
       ],

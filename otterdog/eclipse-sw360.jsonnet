@@ -19,7 +19,7 @@ local customRuleset(name) =
 
   };
 
-orgs.newOrg('eclipse-sw360') {
+orgs.newOrg('technology.sw360', 'eclipse-sw360') {
   settings+: {
     description: "SW360 Portal Organization",
     name: "Eclipse SW360",

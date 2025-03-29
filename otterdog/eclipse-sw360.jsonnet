@@ -39,8 +39,9 @@ orgs.newOrg('technology.sw360', 'eclipse-sw360') {
   ],
   _repositories+:: [
     orgs.newRepo('sw360') {
-      allow_merge_commit: true,
-      allow_squash_merge: false,
+      allow_rebase_merge: true,
+      allow_merge_commit: false,
+      allow_squash_merge: true,
       delete_branch_on_merge: true,
       dependabot_security_updates_enabled: true,
       description: "SW360 project",
@@ -57,10 +58,12 @@ orgs.newOrg('technology.sw360', 'eclipse-sw360') {
       ]
     },
     orgs.newRepo('sw360-frontend') {
-      allow_merge_commit: true,
-      allow_squash_merge: false,
+      allow_rebase_merge: true,
+      allow_merge_commit: false,
+      allow_squash_merge: true,
       delete_branch_on_merge: true,
       description: "SW360 Frontend Project",
+      homepage: "https://www.eclipse.org/sw360/",
       has_discussions: true,
       rulesets: [
         customRuleset("main") {
@@ -73,10 +76,11 @@ orgs.newOrg('technology.sw360', 'eclipse-sw360') {
       ]
     },
     orgs.newRepo('sw360.website') {
-      allow_merge_commit: true,
-      allow_update_branch: false,
+      allow_rebase_merge: true,
+      allow_merge_commit: false,
+      allow_squash_merge: true,
       delete_branch_on_merge: true,
-      description: "sw360 website",
+      description: "SW360 website",
       homepage: "https://www.eclipse.org/sw360/",
       topics+: [
         "eclipse"

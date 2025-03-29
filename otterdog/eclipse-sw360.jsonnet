@@ -12,6 +12,7 @@ local customRuleset(name) =
       required_approving_review_count: 1,
       requires_last_push_approval: true,
       requires_review_thread_resolution: true,
+      requires_code_owner_review: true,
       dismisses_stale_reviews: true,
     },
     requires_linear_history: true,
@@ -38,8 +39,8 @@ orgs.newOrg('eclipse-sw360') {
   _repositories+:: [
     orgs.newRepo('sw360') {
       allow_merge_commit: true,
-      allow_squash_merge: false,
-      delete_branch_on_merge: false,
+      allow_squash_merge: true,
+      delete_branch_on_merge: true,
       dependabot_security_updates_enabled: true,
       description: "SW360 project",
       has_discussions: true,
@@ -56,9 +57,10 @@ orgs.newOrg('eclipse-sw360') {
     },
     orgs.newRepo('sw360-frontend') {
       allow_merge_commit: true,
-      allow_squash_merge: false,
-      delete_branch_on_merge: false,
+      allow_squash_merge: true,
+      delete_branch_on_merge: true,
       description: "SW360 Frontend Project",
+      homepage: "https://www.eclipse.org/sw360/",
       has_discussions: true,
       rulesets: [
         customRuleset("main") {
@@ -73,11 +75,21 @@ orgs.newOrg('eclipse-sw360') {
     orgs.newRepo('sw360.website') {
       allow_merge_commit: true,
       allow_update_branch: false,
-      delete_branch_on_merge: false,
-      description: "sw360 website",
+      delete_branch_on_merge: true,
+      description: "SW360 website",
       homepage: "https://www.eclipse.org/sw360/",
+      has_discussions: true,
       topics+: [
         "eclipse"
+      ],
+      rulesets: [
+        customRuleset("main") {
+          required_status_checks+: {
+            status_checks+: [
+              "Build and Publish"
+            ]
+          }
+        }
       ],
       branch_protection_rules: [
         orgs.newBranchProtectionRule('main') {

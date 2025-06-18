@@ -35,6 +35,13 @@ orgs.newOrg('technology.sw360', 'eclipse-sw360') {
       ],
       value: "pass:bots/technology.sw360/github.com/renovate-token",
       visibility: "selected"
+    },
+    orgs.newOrgSecret('GH_PUBLISH_TOKEN') {
+      selected_repositories+: [
+        "sw360-website"
+      ],
+      value: "pass:bots/technology.sw360/github.com/website-token",
+      visibility: "selected"
     }
   ],
   _repositories+:: [

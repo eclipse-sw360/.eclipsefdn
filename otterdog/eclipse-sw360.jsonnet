@@ -65,6 +65,7 @@ orgs.newOrg('technology.sw360', 'eclipse-sw360') {
       description: "SW360 Frontend Project",
       homepage: "https://www.eclipse.org/sw360/",
       has_discussions: true,
+      has_wiki: false,
       rulesets: [
         customRuleset("main") {
           required_status_checks+: {
@@ -81,11 +82,11 @@ orgs.newOrg('technology.sw360', 'eclipse-sw360') {
       allow_squash_merge: true,
       delete_branch_on_merge: true,
       description: "SW360 website",
+      has_discussions: true,
       homepage: "https://www.eclipse.org/sw360/",
       topics+: [
         "eclipse"
       ],
-      has_discussions: false,
       rulesets: [
         customRuleset("main") {
           required_status_checks+: {

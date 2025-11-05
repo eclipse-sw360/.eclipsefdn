@@ -46,6 +46,7 @@ orgs.newOrg('technology.sw360', 'eclipse-sw360') {
   ],
   _repositories+:: [
     orgs.newRepo('sw360') {
+      allow_auto_merge: true,
       allow_rebase_merge: true,
       allow_merge_commit: false,
       allow_squash_merge: true,
